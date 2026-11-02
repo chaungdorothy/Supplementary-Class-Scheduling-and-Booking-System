@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplementary Class Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">S</div>
+            <div>
+                <h1>ClassConnect</h1>
+                <p>Supplementary Class Scheduling</p>
+            </div>
+        </div>
+    <div class="user-info">
+        <span class="status-dot"></span>
+        <span>Local Demo</span>
+    </div>
+</header>
+<div class="app-layout">
+    <aside class="sidebar">
+        <p class="sidebar-label">MAIN MENU</p>
+        <button class="nav-item active" data-page="dashboard">
+            <span>▦</span> Dashboard
+        </button>
+        <button class="nav-item" data-page="timetable">
+            <span>▤</span> Timetable
+        </button>
+        <button class="nav-item" data-page="bookings">
+            <span>▣</span> Bookings
+        </button>
+        <div class="sidebar-footer">
+            <p>Version 0.1</p>
+            <p>Scheduling made simpler.</p>
+        </div>
+    </aside>
+    <main class="main-content">
+        <section class="page active" id="dashboard">
+            <div class="page-heading">
+                <div>
+                    <p class="eyebrow">OVERVIEW</p>
+                    <h2>Dashboard</h2>
+                    <p class="subtitle">
+                        Manage supplementary classes in one place.
+                    </p>
+                </div>
+                <button class="primary-button" id="newBookingButton">
+                    + New Booking
+                </button>
+            </div>
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <p>Total Bookings</p>
+                    <h3 id="totalBookings">0</h3>
+                    <span>All recorded bookings</span>
+                </article>
+                <article class="stat-card">
+                    <p>Upcoming Classes</p>
+                    <h3 id="upcomingBookings">0</h3>
+                    <span>Scheduled for today or later</span>
+                </article>
+                <article class="stat-card">
+                    <p>Subjects</p>
+                    <h3 id="totalSubjects">0</h3>
+                    <span>Subjects in your bookings</span>
+                </article>
+            </div>
+            <section class="content-card">
+                <div class="section-heading">
+                    <div>
+                        <h3>Recent Bookings</h3>
+                        <p>Your latest scheduled classes.</p>
+                    </div>
+                    <button class="text-button" data-page="bookings">
+                        View all
+                    </button>
+                </div>
+                <div id="recentBookings" class="empty-state">
+                    <div class="empty-icon">▤</div>
+                    <h4>No bookings yet</h4>
+                    <p>Create your first supplementary class booking.</p>
+                    <button class="primary-button" id="emptyNewBookingButton">
+                        Create a Booking
+                    </button>
+                </div>
+            </section>
+        </section>
+        <section class="page" id="timetable">
+            <div class="page-heading">
+                <div>
+                    <p class="eyebrow">SCHEDULE</p>
+                    <h2>Timetable</h2>
+                    <p class="subtitle">
+                        Review your scheduled supplementary classes.
+                    </p>
+                </div>
+            </div>
+            <section class="content-card">
+                <div class="section-heading">
+                    <div>
+                        <h3>Class Schedule</h3>
+                        <p>Bookings are displayed by date and time.</p>
+                    </div>
+                </div>
+                <div id="timetableList" class="empty-state">
+                    <div class="empty-icon">▤</div>
+                    <h4>Your timetable is empty</h4>
+                    <p>Bookings will appear here after you create them.</p>
+                </div>
+            </section>
+        </section>
+        <section class="page" id="bookings">
+            <div class="page-heading">
+                <div>
+                    <p class="eyebrow">MANAGEMENT</p>
+                    <h2>Bookings</h2>
+                    <p class="subtitle">
+                        Create and manage supplementary class bookings.
+                    </p>
+                </div>
+                <button class="primary-button" id="bookingPageNewButton">
+                    + New Booking
+                </button>
+            </div>
+            <section class="content-card">
+                <div class="section-heading">
+                    <div>
+                        <h3>All Bookings</h3>
+                        <p>Manage your recorded classes below.</p>
+                    </div>
+                </div>
+                <div id="allBookings" class="empty-state">
+                    <div class="empty-icon">▣</div>
+                    <h4>No bookings found</h4>
+                    <p>Your bookings will appear here.</p>
+                </div>
+            </section>
+        </section>
+        <section class="content-card booking-form-card" id="bookingFormCard" hidden>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">NEW CLASS</p>
+                    <h3>Create a Booking</h3>
+                    <p>Enter the details of your supplementary class.</p>
+                </div>
+                <button type="button" class="text-button" id="closeFormButton">
+                    Cancel
+                </button>
+            </div>
+            <form id="bookingForm">
+                <div class="form-grid">
+                    <label>
+                        Student Name
+                        <input type="text" id="studentName" required>
+                    </label>
+                    <label>
+                        Teacher Name
+                        <input type="text" id="teacherName" required>
+                    </label>
+                    <label>
+                        Subject
+                        <input type="text" id="subject" required
+                            placeholder="e.g. Mathematics">
+                    </label>
+                    <label>
+                        Date
+                        <input type="date" id="classDate" required>
+                    </label>
+                    <label>
+                        Start Time
+                        <input type="time" id="startTime" required>
+                    </label>
+                    <label>
+                        End Time
+                        <input type="time" id="endTime" required>
+                    </label>
+                    <label class="full-width">
+                        Location
+                        <input type="text" id="location"
+                            placeholder="e.g. Room 201 or Online" required>
+                    </label>
+                </div>
+                <p id="formMessage" class="form-message" role="status"></p>
+                <div class="form-actions">
+                    <button type="button" class="secondary-button" id="cancelFormButton">
+                        Cancel
+                    </button>
+                    <button type="submit" class="primary-button">
+                        Save Booking
+                    </button>
+                </div>
+            </form>
+        </section>
+        <footer class="page-footer">
+            ClassConnect · Supplementary Class Scheduling System
+        </footer>
+    </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
